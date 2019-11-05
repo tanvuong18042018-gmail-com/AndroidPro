@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="350dp"
+    android:layout_height="350dp"
+    android:background="@drawable/background_layout1">
+
+
+    <Button
+        android:id="@+id/buttonClose"
+        android:textSize="20sp"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/button_close_popup"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="X" />
+
+    <EditText
+        android:textColorHint="#EEDBD8D8"
+        android:paddingLeft="15dp"
+        android:layout_marginTop="70dp"
+        android:textColor="#EED8D5D5"
+        android:textSize="25sp"
+        android:background="@drawable/custom_edit_text_quen_mat_khau"
+        android:layout_centerHorizontal="true"
+        android:hint="Tên đăng nhập"
+        android:id="@+id/editTextTenDangNhap"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:ems="10"
+        android:inputType="textPersonName"/>
+
+    <EditText
+        android:textColorHint="#EEDBD8D8"
+        android:layout_below="@+id/editTextTenDangNhap"
+        android:paddingLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#EED8D5D5"
+        android:textSize="25sp"
+        android:background="@drawable/custom_edit_text_quen_mat_khau"
+        android:layout_centerHorizontal="true"
+        android:hint="Email"
+        android:id="@+id/editTextGmail"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"/>
+
+    <Button
+        android:id="@+id/buttonDangKy"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/editTextGmail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_mh_chinh"
+        android:text="Đăng ký"
+        android:textAllCaps="false"
+        android:textColor="#D3D0D0"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

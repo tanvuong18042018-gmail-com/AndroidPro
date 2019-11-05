@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/custom_mh_lichsu_bxh"
+    android:layout_marginTop="20dp">
+
+    <LinearLayout
+        android:layout_marginStart="20dp"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="#fff"
+            android:textSize="15dp"
+            android:id="@+id/textViewNgay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewNgay">
+
+            <TextView
+                android:text="Số câu: "
+                android:textColor="#FF0303"
+                android:textSize="20dp"
+                android:id="@+id/textViewCau"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:textColor="#FF0303"
+                android:textSize="20dp"
+                android:id="@+id/textViewSoCau"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp">
+        <TextView
+            android:textSize="40sp"
+            android:textColor="#F10909"
+            android:id="@+id/textViewSoDiem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</RelativeLayout>

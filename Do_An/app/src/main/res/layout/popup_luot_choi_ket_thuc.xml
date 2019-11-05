@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="400dp"
+    android:background="@drawable/custom_pu_tro_giup">
+
+    <TextView
+        android:textColor="#0D32EC"
+        android:textSize="35sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/textViewLuotChoiKetThuc"
+        android:text="Lượt chơi kết thúc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_below="@+id/textViewLuotChoiKetThuc"
+        android:textColor="#EC0D0D"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:id="@+id/textViewChucMung"
+        android:text="Xin chúc mừng bạn đã đạt được"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/textViewChucMung"
+        android:id="@+id/linearLayoutKetQua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="#F11083"
+            android:textSize="70sp"
+            android:id="@+id/textViewSoDiemKetThuc"
+            android:text="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:textColor="#F11083"
+            android:textSize="25sp"
+            android:id="@+id/textViewDiem"
+            android:text="điểm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <Button
+        android:textColor="#fff"
+        android:background="@drawable/button_ket_thuc_luot_choi"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/buttonThemLuotChoi"
+        android:layout_below="@+id/linearLayoutKetQua"
+        android:text="Thêm 1 lượt chơi : 300"
+        android:layout_width="300dp"
+        android:layout_height="55dp"/>
+
+    <Button
+        android:textColor="#fff"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_ket_thuc_luot_choi"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/buttonThemLuotChoi"
+        android:id="@+id/buttonKetThuc"
+        android:text="Kết thúc"
+        android:layout_width="300dp"
+        android:layout_height="55dp"/>
+</RelativeLayout>

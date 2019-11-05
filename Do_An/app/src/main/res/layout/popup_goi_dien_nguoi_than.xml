@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="350dp"
+    android:layout_height="400dp"
+    android:background="@drawable/custom_pu_tro_giup">
+
+    <TextView
+        android:id="@+id/textViewTraLoi"
+        android:textColor="#5A2929"
+        android:textSize="30sp"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:text="Câu trả lời từ người thân"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/textViewNguoiThanTL"
+        android:textColor="#E60F0F"
+        android:textSize="200sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/textViewTraLoi"
+        android:text="A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/buttonCamOn"
+        android:textSize="15sp"
+        android:textAllCaps="false"
+        android:background="@drawable/button_mh_chinh"
+        android:textColor="#fff"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/textViewNguoiThanTL"
+        android:text="Xin cảm ơn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

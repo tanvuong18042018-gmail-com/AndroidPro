@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GiaiCauDo</string>
+    <string name="dang_ky">Đăng ký</string>
+    <string name="quen_mat_khau">Quên mật khẩu?</string>
+    <string name="ten_dang_nhap">Tên đăng nhập</string>
+    <string name="dang_nhap_facebook">Đăng nhập bằng Facebook</string>
+</resources>
