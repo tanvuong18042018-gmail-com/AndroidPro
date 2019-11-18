@@ -4,65 +4,54 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
-import java.util.List;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class AdapterLichSuChoi extends BaseAdapter {
-    private Context context;
-    private int layout;
-    private List<LichSuNguoiChoi> lichSuNguoiChoiList;
+import java.util.ArrayList;
 
-    public AdapterLichSuChoi(Context context, int layout, List<LichSuNguoiChoi> lichSuNguoiChoiList) {
+public class AdapterLichSuChoi extends RecyclerView.Adapter<AdapterLichSuChoi.ViewHolder>{
+    ArrayList<LichSuNguoiChoi> lichSuNguoiChoiArrayList;
+    Context context;
+
+    public AdapterLichSuChoi(ArrayList<LichSuNguoiChoi> lichSuNguoiChoiArrayList, Context context) {
+        this.lichSuNguoiChoiArrayList = lichSuNguoiChoiArrayList;
         this.context = context;
-        this.layout = layout;
-        this.lichSuNguoiChoiList = lichSuNguoiChoiList;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        View itemView = layoutInflater.inflate(R.layout.dong_lich_su_choi,parent,false);
+
+        return new ViewHolder(itemView);
     }
 
     @Override
-    public int getCount() {
-        return lichSuNguoiChoiList.size();
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.txtCau.setText(lichSuNguoiChoiArrayList.get(position).getSoCau());
+        holder.txtDiem.setText(lichSuNguoiChoiArrayList.get(position).getSoDiem());
+        holder.txtNgay.setText(lichSuNguoiChoiArrayList.get(position).getNgay());
+
     }
 
     @Override
-    public Object getItem(int i) {
-        return null;
+    public int getItemCount() {
+        return lichSuNguoiChoiArrayList.size();
     }
 
-    @Override
-    public long getItemId(int i) {
-        return 0;
-    }
+    public class ViewHolder extends RecyclerView.ViewHolder{
+        TextView txtNgay,txtCau,txtDiem;
 
-    private class ViewHolder{
-        TextView txtNgay,txtDiem,txtCau;
-    }
-
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        ViewHolder holder;
-        if(view == null){
-            holder = new ViewHolder();
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(layout,null);
-            holder.txtNgay = (TextView) view.findViewById(R.id.textViewNgay);
-            holder.txtCau = (TextView) view.findViewById(R.id.textViewSoCau);
-            holder.txtDiem = (TextView) view.findViewById(R.id.textViewSoDiem);
-            view.setTag(holder);
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            txtCau = (TextView) itemView.findViewById(R.id.textViewSoCau);
+            txtNgay = (TextView) itemView.findViewById(R.id.textViewNgay);
+            txtDiem = (TextView) itemView.findViewById(R.id.textViewSoDiem);
         }
-        else {
-            holder = (ViewHolder) view.getTag();
-        }
-        LichSuNguoiChoi lichSuNguoiChoi = lichSuNguoiChoiList.get(i);
-
-        holder.txtNgay.setText(lichSuNguoiChoi.getNgay());
-
-        holder.txtDiem.setText(lichSuNguoiChoi.getSoDiem());
-
-        holder.txtCau.setText(lichSuNguoiChoi.getSoCau());
-
-
-        return view;
     }
 }

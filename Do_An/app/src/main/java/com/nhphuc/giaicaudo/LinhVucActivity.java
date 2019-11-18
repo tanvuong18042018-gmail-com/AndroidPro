@@ -16,7 +16,7 @@ public class LinhVucActivity extends AppCompatActivity {
     AdapterLuotChoi adapterLuotChoi;
     ArrayList<HinhAnhLuotChoi> hinhAnhLuotChoiArrayList;
 
-    Button btnXaHoi;
+    Button btnXaHoi,btnKhoaHoc,btnDienAnh,btnDanGian;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,11 +26,15 @@ public class LinhVucActivity extends AppCompatActivity {
 
         LuotChoi();
 
-        XaHoi();
+        ChonLinhVuc();
     }
 
     public void AnhXa(){
         btnXaHoi = (Button) findViewById(R.id.buttonXaHoi);
+        btnDienAnh = (Button) findViewById(R.id.buttonDienAnh);
+        btnKhoaHoc = (Button) findViewById(R.id.buttonKhoaHoc);
+        btnDanGian = (Button) findViewById(R.id.buttonDanGian);
+
 
         gvTraiTim = (GridView) findViewById(R.id.gridViewTraiTim);
         hinhAnhLuotChoiArrayList = new ArrayList<>();
@@ -46,13 +50,39 @@ public class LinhVucActivity extends AppCompatActivity {
         gvTraiTim.setAdapter(adapterLuotChoi);
     }
 
-    public void XaHoi(){
+    public void ChonLinhVuc(){
         btnXaHoi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LinhVucActivity.this,CauHoiActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.anim_enter,R.anim.anim_exit);
             }
         });
+        btnKhoaHoc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LinhVucActivity.this,CauHoiActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.anim_enter,R.anim.anim_exit);
+            }
+        });
+        btnDienAnh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LinhVucActivity.this,CauHoiActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.anim_enter,R.anim.anim_exit);
+            }
+        });
+        btnDanGian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LinhVucActivity.this,CauHoiActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.anim_enter,R.anim.anim_exit);
+            }
+        });
+
     }
 }

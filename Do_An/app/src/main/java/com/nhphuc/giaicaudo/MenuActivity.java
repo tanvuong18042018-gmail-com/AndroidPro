@@ -40,6 +40,7 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MenuActivity.this, LinhVucActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.anim_enter,R.anim.anim_exit);
             }
         });
     }
@@ -50,6 +51,7 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MenuActivity.this, LichSuActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.anim_enter,R.anim.anim_exit);
             }
         });
     }
@@ -60,6 +62,7 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MenuActivity.this, BangXepHangActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.anim_enter,R.anim.anim_exit);
             }
         });
     }
@@ -70,6 +73,7 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MenuActivity.this, TaiKhoanActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.anim_enter,R.anim.anim_exit);
             }
         });
     }

@@ -1,6 +1,8 @@
 package com.nhphuc.giaicaudo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -11,7 +13,7 @@ import java.util.ArrayList;
 
 public class BangXepHangActivity extends AppCompatActivity {
 
-    ListView lvBangXepHang;
+    RecyclerView rvBangXepHang;
     AdapterXepHang adapterXepHang;
     ArrayList<BangXepHang> bangXepHangArrayList;
 
@@ -26,7 +28,12 @@ public class BangXepHangActivity extends AppCompatActivity {
     }
 
     public void AnhXa(){
-        lvBangXepHang = (ListView) findViewById(R.id.listViewBangXepHang);
+        rvBangXepHang = (RecyclerView) findViewById(R.id.recyclerViewBangXepHang);
+        rvBangXepHang.setHasFixedSize(true);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        rvBangXepHang.setLayoutManager(layoutManager);
+
         bangXepHangArrayList = new ArrayList<>();
         bangXepHangArrayList.add(new BangXepHang(R.mipmap.ic_launcher,"nhphuc","5000"));
         bangXepHangArrayList.add(new BangXepHang(R.mipmap.ic_launcher,"vnninh","4000"));
@@ -38,7 +45,7 @@ public class BangXepHangActivity extends AppCompatActivity {
 
 
     public void BangXepHang(){
-        adapterXepHang = new AdapterXepHang(this,R.layout.dong_bang_xep_hang,bangXepHangArrayList);
-        lvBangXepHang.setAdapter(adapterXepHang);
+        adapterXepHang = new AdapterXepHang(bangXepHangArrayList,getApplicationContext());
+        rvBangXepHang.setAdapter(adapterXepHang);
     }
 }

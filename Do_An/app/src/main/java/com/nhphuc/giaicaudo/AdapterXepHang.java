@@ -4,66 +4,51 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.List;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class AdapterXepHang extends BaseAdapter {
-    private Context context;
-    private int layout;
-    private List<BangXepHang> bangXepHangList;
+import java.util.ArrayList;
 
-    public AdapterXepHang(Context context, int layout, List<BangXepHang> bangXepHangList) {
+public class AdapterXepHang extends RecyclerView.Adapter<AdapterXepHang.ViewHolder>{
+    ArrayList<BangXepHang> bangXepHangArrayList;
+    Context context;
+
+    public AdapterXepHang(ArrayList<BangXepHang> bangXepHangArrayList, Context context) {
+        this.bangXepHangArrayList = bangXepHangArrayList;
         this.context = context;
-        this.layout = layout;
-        this.bangXepHangList = bangXepHangList;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        View itemView = layoutInflater.inflate(R.layout.dong_bang_xep_hang,parent,false);
+        return new ViewHolder(itemView);
     }
 
     @Override
-    public int getCount() {
-        return bangXepHangList.size();
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.imgHinh.setImageResource(bangXepHangArrayList.get(position).getHinh());
+        holder.txtDiem.setText(bangXepHangArrayList.get(position).getDiem());
+        holder.txtTen.setText(bangXepHangArrayList.get(position).getTen());
     }
 
     @Override
-    public Object getItem(int i) {
-        return null;
+    public int getItemCount() {
+        return bangXepHangArrayList.size();
     }
 
-    @Override
-    public long getItemId(int i) {
-        return 0;
-    }
-
-    public class ViewHolder{
-        TextView txtSoDiem,txtTen;
-        ImageView imgAvt;
-    }
-
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        ViewHolder holder;
-        if(view == null){
-            holder = new ViewHolder();
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(layout,null);
-            holder.txtSoDiem = (TextView) view.findViewById(R.id.textViewSoDiem);
-            holder.txtTen = (TextView) view.findViewById(R.id.textViewTen);
-            holder.imgAvt = (ImageView) view.findViewById(R.id.imageViewAvt);
-            view.setTag(holder);
+    public class ViewHolder extends RecyclerView.ViewHolder{
+        TextView txtTen,txtDiem;
+        ImageView imgHinh;
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            txtTen = (TextView) itemView.findViewById(R.id.textViewTen);
+            txtDiem = (TextView) itemView.findViewById(R.id.textViewSoDiem);
+            imgHinh = (ImageView) itemView.findViewById(R.id.imageViewAvt);
         }
-        else {
-            holder = (ViewHolder) view.getTag();
-        }
-        BangXepHang bangXepHang = bangXepHangList.get(i);
-
-        holder.txtTen.setText(bangXepHang.getTen());
-
-        holder.txtSoDiem.setText(bangXepHang.getDiem());
-
-        holder.imgAvt.setImageResource(bangXepHang.getHinh());
-
-        return view;
     }
 }

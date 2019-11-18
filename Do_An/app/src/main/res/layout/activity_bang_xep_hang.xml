@@ -139,13 +139,13 @@
             android:layout_height="60dp"/>
 
     </LinearLayout>
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_marginEnd="30dp"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="30dp"
-        android:id="@+id/listViewBangXepHang"
+        android:id="@+id/recyclerViewBangXepHang"
         android:layout_below="@+id/textViewBangXepHang"
         android:layout_width="300dp"
         android:layout_height="wrap_content">
-    </ListView>
+    </androidx.recyclerview.widget.RecyclerView>
 </RelativeLayout>

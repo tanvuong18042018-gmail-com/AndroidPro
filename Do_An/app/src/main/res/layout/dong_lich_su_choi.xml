@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="80dp"
     android:background="@drawable/custom_mh_lichsu_bxh"
     android:layout_marginTop="20dp">
 
@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <TextView
-            android:textColor="#fff"
+            android:textColor="#000000"
             android:textSize="15dp"
             android:id="@+id/textViewNgay"
             android:layout_width="wrap_content"
@@ -26,13 +26,13 @@
             <TextView
                 android:text="Số câu: "
                 android:textColor="#FF0303"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:id="@+id/textViewCau"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
                 android:textColor="#FF0303"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:id="@+id/textViewSoCau"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>

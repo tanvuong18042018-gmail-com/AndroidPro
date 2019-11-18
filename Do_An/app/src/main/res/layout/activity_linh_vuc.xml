@@ -127,16 +127,5 @@
             android:layout_below="@+id/buttonDienAnh"
             android:layout_width="300dp"
             android:layout_height="55dp"/>
-        <Button
-            android:id="@+id/buttonLichSu"
-            android:textSize="23sp"
-            android:textColor="#fff"
-            android:textAllCaps="false"
-            android:text="Lịch sử"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button_chon_linh_vuc"
-            android:layout_below="@+id/buttonDanGian"
-            android:layout_width="300dp"
-            android:layout_height="55dp"/>
     </RelativeLayout>
 </RelativeLayout>

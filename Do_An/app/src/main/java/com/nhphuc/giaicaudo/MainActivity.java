@@ -5,20 +5,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    ImageView imgLogo;
     Button btnDangKy,btnDangNhap;
     TextView txtQuenMatKhau;
+    EditText edtTenDangNhap,edtMatKhau;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +38,15 @@ public class MainActivity extends AppCompatActivity {
         ShowPopup();
 
         DangNhap();
+
+        Logo();
     }
 
 
     public void AnhXa(){
+        edtMatKhau = (EditText) findViewById(R.id.editTextMatKhau);
+        edtTenDangNhap = (EditText) findViewById(R.id.editTextTenDangNhap);
+        imgLogo = (ImageView) findViewById(R.id.imageViewLogo);
         btnDangNhap = (Button) findViewById(R.id.buttonDangNhap);
         btnDangKy = (Button) findViewById(R.id.buttonDangKy);
         txtQuenMatKhau = (TextView) findViewById(R.id.textViewQuenMatKhau);
@@ -46,13 +59,13 @@ public class MainActivity extends AppCompatActivity {
                 ShowPopupDangKy();
             }
         });
-
         txtQuenMatKhau.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ShowPopupQuenMatKhau();
             }
         });
+
     }
 
     public void ShowPopupQuenMatKhau(){
@@ -87,9 +100,25 @@ public class MainActivity extends AppCompatActivity {
         btnDangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-                startActivity(intent);
+                if(edtTenDangNhap.getText().toString().equals("nhphuc") && edtMatKhau.getText().toString().equals("123")){
+                    Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.anim_enter,R.anim.anim_exit);
+                }
+                else if(TextUtils.isEmpty(edtTenDangNhap.getText().toString()) ||TextUtils.isEmpty(edtMatKhau.getText().toString())){
+                    Toast.makeText(MainActivity.this, "Tên đăng nhập và mật khẩu không được để trống", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(MainActivity.this, "Tên đăng nhập và mật khẩu sai", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+    }
+
+    public void Logo(){
+        Animation animLogo = AnimationUtils.loadAnimation(this,R.anim.anim_logo);
+
+        imgLogo.startAnimation(animLogo);
+
     }
 }
