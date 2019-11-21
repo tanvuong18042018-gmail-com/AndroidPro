@@ -70,16 +70,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void ShowPopupQuenMatKhau(){
         final Dialog dialogPopupQuenMatKhau = new Dialog(this);
-        Button btnClose;
         dialogPopupQuenMatKhau.setContentView(R.layout.popup_quen_mat_khau);
-        btnClose = (Button) dialogPopupQuenMatKhau.findViewById(R.id.buttonClose);
         dialogPopupQuenMatKhau.show();
-        btnClose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialogPopupQuenMatKhau.dismiss();
-            }
-        });
     }
 
     public void ShowPopupDangKy(){

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/background_layout"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroud_answer_question">
 
     <RelativeLayout
         android:id="@+id/relativeLayoutThongTin"
@@ -9,7 +10,6 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
-        android:background="@drawable/custom_mh_cau_hoi"
         android:orientation="vertical"
         android:paddingLeft="30dp">
 
@@ -17,7 +17,7 @@
             android:id="@+id/textViewTen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageViewAvatar"
+            android:layout_below="@+id/img_changeAVT"
             android:text="Tên: "
             android:textSize="20sp" />
 
@@ -26,7 +26,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textViewTen"
-            android:drawableLeft="@drawable/icoruby"
             android:textSize="20sp" />
 
         <TextView
@@ -53,110 +52,120 @@
         android:id="@+id/linearLayoutTien"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/relativeLayoutThongTin"
+        android:layout_centerHorizontal="true"
         android:orientation="horizontal">
+
         <TextView
             android:id="@+id/textViewDiem"
-            android:textColor="#FF0000"
-            android:textSize="40sp"
-            android:text="Điểm "
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="Điểm "
+            android:textColor="#FFFB00"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/textViewSoDiem"
-            android:textColor="#DB1A1A"
-            android:layout_toRightOf="@+id/textViewDiem"
-            android:textSize="40sp"
-            android:text="0"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textViewDiem"
+            android:text="0"
+            android:textColor="#DB1A1A"
+            android:textSize="40sp" />
     </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/relativeLayoutCauHoi"
-        android:layout_below="@+id/linearLayoutTien"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayoutTien"
         android:layout_centerHorizontal="true">
+
         <TextView
-            android:layout_centerHorizontal="true"
             android:id="@+id/textViewCauHoi"
-            android:textColor="#2196F3"
-            android:textSize="20sp"
-            android:text="Câu hỏi"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Câu hỏi"
+            android:textColor="#28FF00"
+            android:textSize="20sp" />
+
         <Button
             android:id="@+id/buttonCauHoi"
-            android:textSize="40sp"
-            android:text="1"
-            android:background="@drawable/button_cau_hoi"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/textViewCauHoi"
             android:layout_width="90dp"
-            android:layout_height="90dp"/>
-        <TextView
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:text="con vịt mấy cái cánh"
-            android:layout_marginTop="10dp"
+            android:layout_height="90dp"
+            android:layout_below="@+id/textViewCauHoi"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/buttonCauHoi"
+            android:background="@drawable/button_cau_hoi"
+            android:text="1"
+            android:textSize="40sp" />
+
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonCauHoi"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="con vịt mấy cái cánh"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/relativeLayoutDapAn"
-        android:layout_below="@+id/relativeLayoutCauHoi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true">
+        android:layout_below="@+id/relativeLayoutCauHoi"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp">
+
         <Button
             android:id="@+id/buttonA"
-            android:textSize="23sp"
-            android:textColor="#fff"
-            android:textAllCaps="false"
-            android:text="A"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/button_chon_linh_vuc"
             android:layout_width="300dp"
-            android:layout_height="55dp"/>
+            android:layout_height="55dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/button_dap_an"
+            android:text="1 cái cánh"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="23sp" />
 
         <Button
             android:id="@+id/buttonB"
-            android:textSize="23sp"
-            android:textColor="#fff"
-            android:textAllCaps="false"
-            android:text="B"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button_chon_linh_vuc"
-            android:layout_below="@+id/buttonA"
             android:layout_width="300dp"
-            android:layout_height="55dp"/>
+            android:layout_height="55dp"
+            android:layout_below="@+id/buttonA"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_dap_an"
+            android:text="2 cái cánh"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="23sp" />
+
         <Button
             android:id="@+id/buttonC"
-            android:textSize="23sp"
-            android:textColor="#fff"
-            android:textAllCaps="false"
-            android:text="C"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button_chon_linh_vuc"
-            android:layout_below="@+id/buttonB"
             android:layout_width="300dp"
-            android:layout_height="55dp"/>
+            android:layout_height="55dp"
+            android:layout_below="@+id/buttonB"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_dap_an"
+            android:text="3 cái cánh"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="23sp" />
+
         <Button
             android:id="@+id/buttonD"
-            android:textSize="23sp"
-            android:textColor="#fff"
-            android:textAllCaps="false"
-            android:text="D"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button_chon_linh_vuc"
-            android:layout_below="@+id/buttonC"
             android:layout_width="300dp"
-            android:layout_height="55dp"/>
+            android:layout_height="55dp"
+            android:layout_below="@+id/buttonC"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_dap_an"
+            android:text="4 cái cánh"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="23sp" />
     </RelativeLayout>
 
     <ProgressBar
@@ -171,12 +180,12 @@
         android:progress="0" />
 
     <LinearLayout
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/progressBarThoiGian"
-        android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/progressBarThoiGian"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/imageButtonICDoiCauHoi"
@@ -184,32 +193,32 @@
             android:layout_height="50dp"
             android:background="@drawable/button_mh_tlch"
             android:src="@drawable/ic_back_question" />
+
         <ImageButton
             android:id="@+id/imageButtonIC50"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:background="@drawable/button_mh_tlch"
-            android:src="@drawable/ic_50"
-            android:layout_width="50dp"
-            android:layout_height="50dp"/>
+            android:onClick="loaiBoDapAnSai"
+            android:src="@drawable/ic_50" />
+
         <ImageButton
             android:id="@+id/imageButtonICKhanGia"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:background="@drawable/button_mh_tlch"
-            android:src="@drawable/ic_khan_gia"
-            android:layout_width="50dp"
-            android:layout_height="50dp"/>
+            android:src="@drawable/ic_khan_gia" />
+
         <ImageButton
             android:id="@+id/imageButtonICNguoiThan"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="10dp"
+            android:onClick="showPopupHelpFamily"
             android:background="@drawable/button_mh_tlch"
-            android:src="@drawable/ic_nguoi_than"
-            android:layout_width="50dp"
-            android:layout_height="50dp"/>
-        <ImageButton
-            android:id="@+id/imageButtonICMuaCredit"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/icofb"
-            android:layout_width="50dp"
-            android:layout_height="50dp"/>
+            android:src="@drawable/ic_nguoi_than" />
+
     </LinearLayout>
 </RelativeLayout>

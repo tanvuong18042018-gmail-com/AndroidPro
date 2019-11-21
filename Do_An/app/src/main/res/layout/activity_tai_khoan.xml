@@ -1,86 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/background_layout">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_layout_poup">
 
     <ImageView
-        android:id="@+id/imageViewAvatar"
+        android:id="@+id/img_changeAVT"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:layout_centerHorizontal="true"
-        android:src="@mipmap/avatar"
-        android:layout_width="120dp"
-        android:layout_height="90dp" />
-    <TextView
-        android:textColor="#000000"
-        android:id="@+id/textViewDoiAvatar"
-        android:textSize="15sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/imageViewAvatar"
-        android:text="Đổi ảnh đại diện"
-        android:layout_width="120dp"
-        android:layout_height="20dp"/>
+        android:src="@mipmap/avatar"/>
 
     <EditText
-        android:layout_centerHorizontal="true"
         android:id="@+id/editTextTenDangNhap"
         android:layout_width="300dp"
         android:layout_height="55dp"
-        android:layout_below="@+id/textViewDoiAvatar"
+        android:layout_below="@+id/img_changeAVT"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:background="@drawable/custom_edit_text_mh_qltk"
         android:ems="10"
+        android:hint="Tên hiển thị"
         android:inputType="textPersonName"
         android:paddingLeft="15dp"
         android:textColor="#000000"
+        android:textColorHint="#EEDBD8D8"
         android:textSize="25sp" />
 
     <EditText
-        android:paddingLeft="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/editTextTenDangNhap"
-        android:textColor="#000000"
-        android:textSize="25sp"
-        android:background="@drawable/custom_edit_text_mh_qltk"
-        android:layout_centerHorizontal="true"
         android:id="@+id/editTextGmail"
         android:layout_width="300dp"
         android:layout_height="55dp"
+        android:layout_below="@+id/editTextTenDangNhap"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_edit_text_mh_qltk"
         android:ems="10"
-        android:inputType="textEmailAddress" />
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="15dp"
+        android:textColor="#000000"
+        android:textColorHint="#EEDBD8D8"
+        android:textSize="25sp" />
 
     <EditText
-        android:textColorHint="#EEDBD8D8"
-        android:hint="Đổi mật khẩu"
-        android:paddingLeft="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/editTextGmail"
-        android:textColor="#000000"
-        android:textSize="25sp"
-        android:background="@drawable/custom_edit_text_mh_qltk"
-        android:layout_centerHorizontal="true"
         android:id="@+id/editTextDoiMatKhau"
         android:layout_width="300dp"
         android:layout_height="55dp"
+        android:layout_below="@+id/editTextGmail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_edit_text_mh_qltk"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:hint="Đổi mật khẩu"
+        android:inputType="textPassword"
+        android:paddingLeft="15dp"
+        android:textColor="#000000"
+        android:textColorHint="#EEDBD8D8"
+        android:textSize="25sp" />
 
     <EditText
-        android:textColorHint="#EEDBD8D8"
-        android:hint="Nhập lại mật khẩu"
-        android:paddingLeft="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/editTextDoiMatKhau"
-        android:textColor="#000000"
-        android:textSize="25sp"
-        android:background="@drawable/custom_edit_text_mh_qltk"
-        android:layout_centerHorizontal="true"
         android:id="@+id/editTextNhapLaiMatKhauDoi"
         android:layout_width="300dp"
         android:layout_height="55dp"
+        android:layout_below="@+id/editTextDoiMatKhau"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_edit_text_mh_qltk"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:hint="Nhập lại mật khẩu"
+        android:inputType="textPassword"
+        android:paddingLeft="15dp"
+        android:textColor="#000000"
+        android:textColorHint="#EEDBD8D8"
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/buttonCapNhat"
@@ -89,7 +84,7 @@
         android:layout_below="@id/editTextNhapLaiMatKhauDoi"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:background="@drawable/button_mh_chinh"
+        android:background="@drawable/button_update_account"
         android:text="Cập nhật"
         android:textAllCaps="false"
         android:textColor="#FFF5F1F1"

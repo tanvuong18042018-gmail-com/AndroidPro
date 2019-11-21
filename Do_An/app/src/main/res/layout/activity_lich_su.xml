@@ -2,60 +2,60 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_layout">
+    android:background="@drawable/background_layer">
 
     <RelativeLayout
         android:id="@+id/relativeLayoutThongTin"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/custom_mh_cau_hoi"
-        android:paddingLeft="30dp"
-        android:orientation="vertical"
-        android:layout_centerHorizontal="true"
         android:layout_width="350dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:paddingLeft="30dp">
 
         <TextView
-            android:layout_below="@+id/imageViewAvatar"
             android:id="@+id/textViewTen"
-            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_changeAVT"
             android:text="Tên: "
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:textSize="20sp" />
+
         <TextView
-            android:layout_below="@+id/textViewTen"
-            android:drawableLeft="@drawable/icoruby"
             android:id="@+id/textViewRuby"
-            android:textSize="20sp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:textColor="#FFEB3B"
-            android:text="1000"
-            android:layout_toRightOf="@+id/textViewRuby"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/textViewTen"
+            android:textSize="20sp" />
+
+        <TextView
             android:id="@+id/textViewSoRuby"
-            android:textSize="20sp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewTen"
+            android:layout_toRightOf="@+id/textViewRuby"
+            android:text="1000"
+            android:textColor="#FFEB3B"
+            android:textSize="20sp" />
     </RelativeLayout>
 
     <TextView
         android:id="@+id/textViewLichSuChoi"
-        android:textSize="30sp"
-        android:textColor="#F10909"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/relativeLayoutThongTin"
-        android:text="Lịch sử chơi"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relativeLayoutThongTin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Lịch sử chơi"
+        android:textColor="#62FF00"
+        android:textSize="36sp"
+        android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
         android:id="@+id/recyclerViewLichSuChoi"
-        android:layout_below="@+id/textViewLichSuChoi"
         android:layout_width="350dp"
-        android:layout_height="wrap_content">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewLichSuChoi"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"></androidx.recyclerview.widget.RecyclerView>
 </RelativeLayout>

@@ -19,7 +19,7 @@ public class TaiKhoanActivity extends AppCompatActivity {
 
     TextView txtDoiAvt;
     ImageView imgAvt;
-    int REQUEST_CODE_CAMERA=123;
+    int REQUEST_CODE_CAMERA = 123;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +32,11 @@ public class TaiKhoanActivity extends AppCompatActivity {
     }
 
     public void  AnhXa(){
-        txtDoiAvt = (TextView) findViewById(R.id.textViewDoiAvatar);
-        imgAvt = (ImageView) findViewById(R.id.imageViewAvatar);
+        imgAvt = (ImageView) findViewById(R.id.img_changeAVT);
     }
 
     public void DoiAvt(){
-        txtDoiAvt.setOnClickListener(new View.OnClickListener() {
+        imgAvt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

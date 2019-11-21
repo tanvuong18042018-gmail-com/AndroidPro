@@ -1,110 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/background_layout"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_layer">
 
     <RelativeLayout
         android:id="@+id/relativeLayoutThongTin"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/custom_mh_chinh"
-        android:paddingLeft="30dp"
-        android:orientation="vertical"
-        android:layout_centerHorizontal="true"
         android:layout_width="350dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        android:paddingLeft="30dp">
+
         <ImageView
-            android:layout_marginTop="10dp"
-            android:id="@+id/imageViewAvatar"
+            android:id="@+id/img_changeAVT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:src="@mipmap/avatar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/avatar" />
+
         <TextView
-            android:layout_below="@+id/imageViewAvatar"
             android:id="@+id/textViewTen"
-            android:textSize="30sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_changeAVT"
             android:text="Tên: "
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:textSize="30sp" />
+
         <TextView
-            android:layout_below="@+id/textViewTen"
-            android:drawableLeft="@drawable/icoruby"
             android:id="@+id/textViewRuby"
-            android:textSize="40sp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewTen"
+            android:textSize="40sp" />
+
         <TextView
+            android:id="@+id/textViewCaoNhat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/textViewRuby"
             android:text="Best: "
-            android:id="@+id/textViewCaoNhat"
-            android:textSize="30sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:textSize="30sp" />
     </RelativeLayout>
+
     <Button
         android:id="@+id/buttonTroChoiMoi"
-        android:textSize="25sp"
-        android:textColor="#fff"
-        android:textAllCaps="false"
-        android:text="Trò chơi mới"
+        android:layout_width="230dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/relativeLayoutThongTin"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/button_tro_choi_moi"
-        android:layout_below="@+id/relativeLayoutThongTin"
-        android:layout_width="230dp"
-        android:layout_height="55dp"/>
+        android:text="Trò chơi mới"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/buttonLichSu"
-        android:textSize="25sp"
-        android:textColor="#fff"
-        android:textAllCaps="false"
-        android:text="Lịch sử"
-        android:layout_marginRight="20dp"
+        android:layout_width="230dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/buttonTroChoiMoi"
         android:layout_alignParentRight="true"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/button_lich_su"
-        android:layout_below="@+id/buttonTroChoiMoi"
-        android:layout_width="230dp"
-        android:layout_height="55dp"/>
+        android:text="Lịch sử"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/buttonBangXepHang"
-        android:textSize="25sp"
-        android:textColor="#fff"
-        android:textAllCaps="false"
-        android:text="Bảng xếp hạng"
+        android:layout_width="230dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/buttonLichSu"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/button_bang_xep_hang"
-        android:layout_below="@+id/buttonLichSu"
-        android:layout_width="230dp"
-        android:layout_height="55dp"/>
+        android:text="Bảng xếp hạng"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/buttonQuanLyTaiKhoan"
-        android:textSize="25sp"
-        android:textColor="#fff"
-        android:textAllCaps="false"
-        android:text="Quản lý tài khoản"
-        android:layout_marginRight="20dp"
+        android:layout_width="230dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/buttonBangXepHang"
         android:layout_alignParentRight="true"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/button_quan_ly_tai_khoan"
-        android:layout_below="@+id/buttonBangXepHang"
-        android:layout_width="230dp"
-        android:layout_height="55dp"/>
+        android:text="Quản lý tài khoản"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/buttonMuaCredit"
-        android:textSize="25sp"
-        android:textColor="#fff"
-        android:textAllCaps="false"
-        android:text="Mua Credit"
+        android:layout_width="230dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/buttonQuanLyTaiKhoan"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/button_mua_credit"
-        android:layout_below="@+id/buttonQuanLyTaiKhoan"
-        android:layout_width="230dp"
-        android:layout_height="55dp"/>
+        android:text="Mua Credit"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="25sp" />
 </RelativeLayout>
