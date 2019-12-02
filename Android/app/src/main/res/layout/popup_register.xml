@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="400dp"
+    android:layout_height="410dp"
+    android:background="@drawable/backgroundbox">
+
+    <ImageView
+        android:id="@+id/imageViewRegister"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/ic_person_register_foreground" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageViewRegister"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="Email login..."
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textColorHint="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/editTextNamePerson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextEmail"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="Name..."
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textColorHint="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextNamePerson"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="Password..."
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textColorHint="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/editTextRePassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextPassword"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="Re-password..."
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textColorHint="#FFFFFf" />
+
+    <Button
+        android:id="@+id/buttonRegisterAccept"
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/editTextRePassword"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/btn_login"
+        android:text="Register"
+        android:textAllCaps="false"
+        android:textColor="#00FFE1" />
+
+    <Button
+        android:id="@+id/buttonBackRegister"
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/editTextRePassword"
+        android:layout_alignStart="@+id/buttonRegister"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/btn_login"
+        android:text="Back zìa"
+        android:textAllCaps="false"
+        android:textColor="#00FFE1" />
+
+</RelativeLayout>
