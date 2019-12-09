@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,182 +9,108 @@
     tools:context=".QuestionActivity">
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/textViewHeartOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="42dp"
         android:text="💖"
         android:textColor="#FF0000"
-        android:textSize="30sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView7"
-        app:layout_constraintEnd_toStartOf="@+id/textView7" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="229dp" />
+        android:textSize="30sp" />
 
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/btn_answer_question"
-        android:text="Tố Như"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="112dp" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:background="@drawable/btn_answer_question"
-        android:text="Xuân Diệu"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/btn_answer_question"
-        android:text="Xuân Quỳnh"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/button"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:background="@drawable/btn_answer_question"
-        android:text="Trạng Quỳnh"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button3"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="@+id/button2" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:background="@drawable/btn_answer_question"
-        android:text="Nguyễn Du có bút danh là?"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/button" />
 
     <Button
         android:id="@+id/buttonBuyCredit"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/btn_help"
         android:textColor="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/imageView4"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonAudience"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/buttonBuyCredit"
+        android:layout_alignStart="@+id/buttonBuyCredit"
+        android:layout_alignEnd="@+id/buttonBuyCredit"
+        android:layout_marginTop="8dp"
         android:background="@drawable/btn_help"
         android:textColor="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/button8"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button13"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="60dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/buttonAudience"
+        android:layout_alignStart="@+id/buttonAudience"
+        android:layout_alignEnd="@+id/buttonAudience"
+        android:layout_marginTop="8dp"
         android:background="@drawable/btn_help"
         android:enabled="false"
         android:textColor="#ffffff"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline5" />
+        app:layout_constraintHorizontal_bias="1.0" />
 
     <Button
         android:id="@+id/button14"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/button13"
+        android:layout_alignStart="@+id/button13"
+        android:layout_alignEnd="@+id/button13"
+        android:layout_marginTop="8dp"
         android:background="@drawable/btn_help"
         android:enabled="false"
         android:textColor="#ffffff"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline6" />
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <Button
         android:id="@+id/button8"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
+        android:layout_alignTop="@+id/button9"
+        android:layout_alignEnd="@+id/textViewHeartOne"
         android:background="@drawable/btn_help"
         android:textColor="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/button9"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button9"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="60dp"
+        android:layout_alignTop="@+id/buttonAudience"
+        android:layout_marginStart="16dp"
         android:layout_marginBottom="8dp"
+        android:layout_toEndOf="@+id/buttonAudience"
         android:background="@drawable/btn_help"
         android:textColor="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/button10"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button10"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="60dp"
+        android:layout_below="@+id/button14"
+        android:layout_alignStart="@+id/button14"
+        android:layout_marginTop="8dp"
         android:background="@drawable/btn_help"
         android:text="50:50"
         android:textColor="#ffffff"
-        app:layout_constraintBottom_toBottomOf="@+id/button3"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -191,9 +118,11 @@
         android:id="@+id/imageView"
         android:layout_width="69dp"
         android:layout_height="67dp"
-        android:layout_marginBottom="4dp"
+        android:layout_alignStart="@+id/button13"
+        android:layout_alignTop="@+id/button13"
+        android:layout_alignEnd="@+id/button13"
+        android:layout_alignBottom="@+id/button13"
         app:layout_constraintBottom_toTopOf="@+id/button9"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_help_phone_foreground" />
 
@@ -201,9 +130,11 @@
         android:id="@+id/imageView2"
         android:layout_width="69dp"
         android:layout_height="67dp"
-        android:layout_marginBottom="4dp"
+        android:layout_alignStart="@+id/button14"
+        android:layout_alignTop="@+id/button14"
+        android:layout_alignEnd="@+id/button14"
+        android:layout_alignBottom="@+id/button14"
         app:layout_constraintBottom_toTopOf="@+id/button10"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_help_team_foreground" />
 
@@ -211,9 +142,11 @@
         android:id="@+id/imageView4"
         android:layout_width="69dp"
         android:layout_height="67dp"
-        android:layout_marginBottom="4dp"
+        android:layout_alignStart="@+id/buttonAudience"
+        android:layout_alignTop="@+id/buttonAudience"
+        android:layout_alignEnd="@+id/buttonAudience"
+        android:layout_alignBottom="@+id/buttonAudience"
         app:layout_constraintBottom_toTopOf="@+id/button8"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_help_chart_foreground" />
 
@@ -221,114 +154,105 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button8"
+        android:layout_alignTop="@+id/button8"
+        android:layout_alignEnd="@+id/button8"
+        android:layout_alignBottom="@+id/button8"
         android:text="30"
+        android:paddingTop="13dp"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/button13"
         app:layout_constraintEnd_toEndOf="@+id/button13"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/button13" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="595dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="224dp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button9"
+        android:layout_alignTop="@+id/button9"
+        android:layout_alignEnd="@+id/button9"
+        android:layout_alignBottom="@+id/button9"
+        android:textAlignment="center"
+        android:paddingTop="13dp"
         android:text="1"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/button14"
-        app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="@+id/button14"
         app:layout_constraintTop_toTopOf="@+id/button14" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textViewHeartTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="32dp"
+        android:layout_alignTop="@+id/textViewHeartOne"
+        android:layout_toStartOf="@+id/textViewHeartOne"
         android:text="💖"
         android:textColor="#FF0000"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textViewHeartThree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_alignTop="@+id/textViewHeartTwo"
+        android:layout_toStartOf="@+id/textViewHeartTwo"
         android:text="💖"
         android:textColor="#FF0000"
-        android:textSize="30sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView4"
-        app:layout_constraintEnd_toStartOf="@+id/textView4" />
+        android:textSize="30sp" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textViewHeartFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_alignTop="@+id/textViewHeartThree"
+        android:layout_toStartOf="@+id/textViewHeartThree"
         android:text="💖"
         android:textColor="#FF0000"
         android:textSize="30sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
-        app:layout_constraintEnd_toStartOf="@+id/textView5" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewHeartThree"
+        app:layout_constraintEnd_toStartOf="@+id/textViewHeartThree" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/textViewHeartFive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_alignTop="@+id/textViewHeartFour"
+        android:layout_toStartOf="@+id/textViewHeartFour"
         android:text="💖"
         android:textColor="#FF0000"
-        android:textSize="30sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView6"
-        app:layout_constraintEnd_toStartOf="@+id/textView6" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="63dp" />
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_alignTop="@+id/buttonBuyCredit"
+        android:layout_marginStart="24dp"
+        android:layout_toEndOf="@+id/buttonBuyCredit"
         android:text="✯"
         android:textColor="#FFD500"
         android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
-        app:layout_constraintStart_toStartOf="@+id/button5"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_alignTop="@+id/textView9"
+        android:layout_alignBottom="@+id/textView9"
+        android:paddingTop="15dp"
+        android:layout_toEndOf="@+id/textView9"
         android:text="757"
+        android:layout_marginLeft="10dp"
         android:textColor="#FFD500"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -339,6 +263,10 @@
         android:id="@+id/imageView5"
         android:layout_width="69dp"
         android:layout_height="67dp"
+        android:layout_below="@+id/buttonBuyCredit"
+        android:layout_alignStart="@+id/buttonBuyCredit"
+        android:layout_alignTop="@+id/buttonBuyCredit"
+        android:layout_alignEnd="@+id/buttonBuyCredit"
         app:layout_constraintBottom_toTopOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="@+id/buttonBuyCredit"
         app:layout_constraintStart_toStartOf="@+id/buttonBuyCredit"
@@ -349,27 +277,36 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_alignTop="@+id/textViewTextPoint"
+        android:layout_toEndOf="@+id/textViewTextPoint"
         android:text="257"
         android:textColor="#FF0000"
         android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView13"
-        app:layout_constraintStart_toEndOf="@+id/textView13" />
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/textViewTextPoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
+        android:layout_toEndOf="@+id/textView2"
         android:text="Point:"
         android:textColor="#FF0000"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintEnd_toEndOf="@+id/button"
         app:layout_constraintStart_toEndOf="@+id/button14" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ListView
+        android:id="@+id/listViewQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewTextPoint"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_alignEnd="@id/textView"
+        android:layout_alignBottom="@+id/button10" />
+
+</RelativeLayout>

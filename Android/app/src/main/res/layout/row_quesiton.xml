@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Button
+        android:id="@+id/buttonResultC"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@+id/buttonResultA"
+        android:layout_alignStart="@+id/buttonResultA"
+        android:layout_alignEnd="@+id/buttonResultA"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btn_answer_question"
+        android:text="Xuân Quỳnh"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/buttonResultD"
+        android:layout_width="365dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/buttonResultB"
+        android:layout_alignTop="@+id/buttonResultC"
+        android:layout_alignEnd="@+id/buttonResultB"
+        android:background="@drawable/btn_answer_question"
+        android:text="Trạng Quỳnh"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/buttonResultB"
+        android:layout_width="365dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/buttonResultA"
+        android:layout_alignEnd="@+id/buttonQuestion"
+        android:layout_marginStart="1dp"
+        android:layout_toEndOf="@+id/buttonResultA"
+        android:background="@drawable/btn_answer_question"
+        android:text="Xuân Diệu"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/buttonResultA"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/buttonQuestion"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btn_answer_question"
+        android:text="Tố Như"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/buttonQuestion"
+        android:layout_width="600dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/btn_answer_question"
+        android:text="Nguyễn Du có bút danh là?"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>
