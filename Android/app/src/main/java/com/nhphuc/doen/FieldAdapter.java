@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -37,7 +38,8 @@ public class FieldAdapter  extends BaseAdapter {
     }
 
     private class ViewHolder{
-        Button btnFieldOne;
+        TextView txtField;
+        //Button btnFieldOne;
     }
 
     @Override
@@ -50,7 +52,7 @@ public class FieldAdapter  extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             convertView = inflater.inflate(layout, null);
-            viewHolder.btnFieldOne      = (Button) convertView.findViewById(R.id.buttonFieldOne);
+            viewHolder.txtField      = (TextView) convertView.findViewById(R.id.textViewFiled);
 
             convertView.setTag(viewHolder);
         } else{
@@ -58,8 +60,8 @@ public class FieldAdapter  extends BaseAdapter {
         }
 
         Field field = fieldList.get(position);
-
-        viewHolder.btnFieldOne.setText(field.getField_name());
+        viewHolder.txtField.setText(field.getField_name());
+        viewHolder.txtField.setId(field.getField_id());
 
         return convertView;
     }

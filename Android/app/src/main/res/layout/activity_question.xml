@@ -102,7 +102,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/buttonFivetyandFivety"
         android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_below="@+id/button14"
@@ -110,6 +110,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/btn_help"
         android:text="50:50"
+        android:onClick="FiveandFive"
         android:textColor="#ffffff"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
@@ -134,12 +135,12 @@
         android:layout_alignTop="@+id/button14"
         android:layout_alignEnd="@+id/button14"
         android:layout_alignBottom="@+id/button14"
-        app:layout_constraintBottom_toTopOf="@+id/button10"
+        app:layout_constraintBottom_toTopOf="@+id/buttonFivetyandFivety"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_help_team_foreground" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageViewAudience"
         android:layout_width="69dp"
         android:layout_height="67dp"
         android:layout_alignStart="@+id/buttonAudience"
@@ -170,7 +171,7 @@
 
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewNumberQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/button9"
@@ -267,19 +268,19 @@
         android:layout_alignStart="@+id/buttonBuyCredit"
         android:layout_alignTop="@+id/buttonBuyCredit"
         android:layout_alignEnd="@+id/buttonBuyCredit"
-        app:layout_constraintBottom_toTopOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="@+id/buttonBuyCredit"
         app:layout_constraintStart_toStartOf="@+id/buttonBuyCredit"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_vali_foreground" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/textViewScoreNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textViewTextPoint"
+        android:layout_toStartOf="@+id/textView"
         android:layout_toEndOf="@+id/textViewTextPoint"
-        android:text="257"
+        android:text="0"
         android:textColor="#FF0000"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -288,12 +289,12 @@
         android:id="@+id/textViewTextPoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView2"
-        android:layout_marginStart="49dp"
+        android:layout_alignTop="@+id/textViewNumberQuestion"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
-        android:layout_toEndOf="@+id/textView2"
+        android:layout_toEndOf="@+id/textViewNumberQuestion"
         android:text="Point:"
         android:textColor="#FF0000"
         android:textSize="30sp"
@@ -305,8 +306,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewTextPoint"
-        android:layout_alignStart="@+id/textView2"
+        android:layout_alignStart="@+id/textViewNumberQuestion"
         android:layout_alignEnd="@id/textView"
-        android:layout_alignBottom="@+id/button10" />
+        android:layout_alignBottom="@+id/buttonFivetyandFivety" />
 
 </RelativeLayout>

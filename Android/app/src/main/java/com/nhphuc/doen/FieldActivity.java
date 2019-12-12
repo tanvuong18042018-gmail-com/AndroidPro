@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -23,14 +25,16 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class FieldActivity extends AppCompatActivity {
-
-    Button btnField;
+    TextView txtField;
 
     String urlGetData = "https://laravelandandroid.000webhostapp.com/api/apiField";
 
     ListView listView;
     ArrayList<Field> fieldArrayList;
     FieldAdapter fieldAdapter;
+
+    String m;
+
     //Field field;
 
     @Override
@@ -44,16 +48,27 @@ public class FieldActivity extends AppCompatActivity {
 
         GetData(urlGetData);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
+                m = fieldArrayList.get(position).getField_name();
+                Intent intent = new Intent(FieldActivity.this, QuestionActivity.class);
+                intent.putExtra("m", m);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void Anhxa() {
-        btnField = (Button) findViewById(R.id.buttonFieldOne);
 
         listView = (ListView) findViewById(R.id.listViewButtonField);
         fieldArrayList = new ArrayList<>();
 
         fieldAdapter = new FieldAdapter(this, R.layout.button_field_group, fieldArrayList);
         listView.setAdapter(fieldAdapter);
+
     }
 
 //    private void ShowActivity(){
@@ -100,10 +115,5 @@ public class FieldActivity extends AppCompatActivity {
                 }
         );
         requestQueue.add(jsonArrayRequest);
-    }
-
-    public void c(View view) {
-        Intent intent = new Intent(FieldActivity.this, QuestionActivity.class);
-        startActivity(intent);
     }
 }

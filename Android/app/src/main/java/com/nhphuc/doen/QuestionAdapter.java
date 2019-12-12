@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -36,8 +37,9 @@ public class QuestionAdapter extends BaseAdapter {
         return 0;
     }
 
-    private class ViewHolder{
-        Button btnQuestion, btnResultA, btnResultB, btnResultC, btnResultD;
+    public class ViewHolder{
+        Button btnQuestion;
+        TextView txtResultQuetion, txtResultA, txtResultB, txtResultC, txtResultD;
     }
 
     @Override
@@ -50,10 +52,11 @@ public class QuestionAdapter extends BaseAdapter {
 
             convertView = inflater.inflate(layout, null);
             viewHolder.btnQuestion     = (Button) convertView.findViewById(R.id.buttonQuestion);
-            viewHolder.btnResultA      = (Button) convertView.findViewById(R.id.buttonResultA);
-            viewHolder.btnResultB      = (Button) convertView.findViewById(R.id.buttonResultB);
-            viewHolder.btnResultC      = (Button) convertView.findViewById(R.id.buttonResultC);
-            viewHolder.btnResultD      = (Button) convertView.findViewById(R.id.buttonResultD);
+            viewHolder.txtResultA      = (TextView) convertView.findViewById(R.id.textViewResultA);
+            viewHolder.txtResultB      = (TextView) convertView.findViewById(R.id.textViewResultB);
+            viewHolder.txtResultC      = (TextView) convertView.findViewById(R.id.textViewResultC);
+            viewHolder.txtResultD      = (TextView) convertView.findViewById(R.id.textViewResultD);
+            viewHolder.txtResultQuetion = (TextView) convertView.findViewById(R.id.textViewResultQuetion);
 
             convertView.setTag(viewHolder);
         } else{
@@ -63,10 +66,11 @@ public class QuestionAdapter extends BaseAdapter {
         Question question = questionList.get(position);
 
         viewHolder.btnQuestion.setText(question.getCont_question());
-        viewHolder.btnResultA.setText(question.getResult_a());
-        viewHolder.btnResultB.setText(question.getResult_b());
-        viewHolder.btnResultC.setText(question.getResult_c());
-        viewHolder.btnResultD.setText(question.getResult_d());
+        viewHolder.txtResultA.setText(question.getResult_a());
+        viewHolder.txtResultB.setText(question.getResult_b());
+        viewHolder.txtResultC.setText(question.getResult_c());
+        viewHolder.txtResultD.setText(question.getResult_d());
+        viewHolder.txtResultQuetion.setText(question.getResult());
 
         return convertView;
     }

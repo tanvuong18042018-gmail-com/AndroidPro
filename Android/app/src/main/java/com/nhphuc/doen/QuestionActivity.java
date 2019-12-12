@@ -4,9 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.icu.text.MeasureFormat;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,27 +22,51 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
 public class QuestionActivity extends AppCompatActivity {
 
-    Button btnBuyCredit, btnAudience;
+    Button btnBuyCredit, btnAudience, btnFivetyAndFivety;
+    TextView txtResult, txtResultA, txtResultB, txtResultC, txtResultD, txtHeartFive, txtHeartFour, txtHeartThree, txtHeartTwo, txtHeartOne, txtScoreNumber, txtNumberQuestion;
+    ImageView imgAudience;
 
-    String urlGetData = "https://laravelandandroid.000webhostapp.com/api/question?field=L%E1%BB%8Bch%20s%E1%BB%AD";
-
+    String urlGetData;
+    BarChart chart;
     ListView listView;
     ArrayList<Question> questionArrayList;
     QuestionAdapter questionAdapter;
+    Question question;
+
+    FieldActivity fieldActivity;
+
+    ArrayList<BarEntry> BARENTRY ;
+    ArrayList<String> BarEntryLabels ;
+    BarDataSet Bardataset ;
+    BarData BARDATA ;
+    int postionQuestion = 0;
+    int Scroce = 0;
+    int numberQuestion = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+
+        Intent intent = getIntent();
+        String ten = intent.getStringExtra("m");
+        urlGetData = "https://laravelandandroid.000webhostapp.com/api/question?field=" + ten;
 
         AnhXa();
 
@@ -47,8 +76,24 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     public void AnhXa(){
-        btnBuyCredit = (Button) findViewById(R.id.buttonBuyCredit);
-        btnAudience = (Button) findViewById(R.id.buttonAudience);
+        btnBuyCredit    = (Button) findViewById(R.id.buttonBuyCredit);
+        btnAudience     = (Button) findViewById(R.id.buttonAudience);
+        btnFivetyAndFivety = (Button) findViewById(R.id.buttonFivetyandFivety);
+
+        imgAudience     = (ImageView) findViewById(R.id.imageViewAudience);
+
+        txtResultA      = (TextView) findViewById(R.id.textViewResultA);
+        txtResultB      = (TextView) findViewById(R.id.textViewResultB);
+        txtResultC      = (TextView) findViewById(R.id.textViewResultC);
+        txtResultD      = (TextView) findViewById(R.id.textViewResultD);
+        txtResult       = (TextView) findViewById(R.id.textViewResultQuetion);
+        txtHeartFive    = (TextView) findViewById(R.id.textViewHeartFive);
+        txtHeartFour    = (TextView) findViewById(R.id.textViewHeartFour);
+        txtHeartThree   = (TextView) findViewById(R.id.textViewHeartThree);
+        txtHeartTwo     = (TextView) findViewById(R.id.textViewHeartTwo);
+        txtHeartOne     = (TextView) findViewById(R.id.textViewHeartOne);
+        txtScoreNumber  = (TextView) findViewById(R.id.textViewScoreNumber);
+        txtNumberQuestion = (TextView) findViewById(R.id.textViewNumberQuestion);
 
         listView = (ListView) findViewById(R.id.listViewQuestion);
         questionArrayList = new ArrayList<>();
@@ -106,6 +151,8 @@ public class QuestionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 PopupAudience();
+                btnAudience.setVisibility(View.INVISIBLE);
+                imgAudience.setVisibility(View.INVISIBLE);
             }
         });
     }
@@ -116,8 +163,316 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     public void PopupAudience(){
-        final Dialog dialogPopupConsultAudience = new Dialog(QuestionActivity.this);
-        dialogPopupConsultAudience.setContentView(R.layout.activity_popup_consult_audience);
+        final Dialog dialogPopupConsultAudience = new Dialog(this);
+        dialogPopupConsultAudience.setContentView(R.layout.dialog_khan_gia_tro_giup);
+
+        veBieuDo(dialogPopupConsultAudience);
+
         dialogPopupConsultAudience.show();
+    }
+
+    public void veBieuDo(Dialog dialog) {
+        chart = (BarChart) dialog.findViewById(R.id.chart);
+
+        BARENTRY = new ArrayList<>();
+
+        BarEntryLabels = new ArrayList<String>();
+
+        AddValuesToBARENTRY();
+
+        AddValuesToBarEntryLabels();
+
+        Bardataset = new BarDataSet(BARENTRY, null);
+
+        BARDATA = new BarData(BarEntryLabels, Bardataset);
+
+        Bardataset.setValueTextSize(20);
+
+        Bardataset.setColors(ColorTemplate.JOYFUL_COLORS);
+
+        Bardataset.setValueTextColor(Color.WHITE);
+
+        chart.setData(BARDATA);
+
+        chart.animateY(5000);
+
+        chart.setDescription(null);
+
+        chart.getLegend().setEnabled(false);
+
+        chart.setDescriptionTextSize(25);
+
+        chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+
+        chart.getXAxis().setTextColor(Color.WHITE);
+
+        chart.getAxisRight().setEnabled(false);
+        chart.getAxisLeft().setEnabled(false);
+
+        chart.getAxisLeft().setTextSize(15);
+
+        chart.getXAxis().setTextSize(10);
+
+        chart.getAxisLeft().setDrawGridLines(false);
+        chart.getAxisRight().setDrawGridLines(false);
+        chart.getXAxis().setDrawGridLines(false);
+
+        chart.setTouchEnabled(false);
+
+        chart.setDoubleTapToZoomEnabled(false);
+    }
+
+    public void AddValuesToBARENTRY(){
+        if (questionArrayList.get(postionQuestion).getResult_a().equals(questionArrayList.get(postionQuestion).getResult())){
+            BARENTRY.add(new BarEntry(30, 0));
+            BARENTRY.add(new BarEntry(27, 1));
+            BARENTRY.add(new BarEntry(21, 2));
+            BARENTRY.add(new BarEntry(22, 3));
+        } else {
+            if (questionArrayList.get(postionQuestion).getResult_b().equals(questionArrayList.get(postionQuestion).getResult())){
+                BARENTRY.add(new BarEntry(22, 0));
+                BARENTRY.add(new BarEntry(30, 1));
+                BARENTRY.add(new BarEntry(27, 2));
+                BARENTRY.add(new BarEntry(21, 3));
+            } else {
+                if (questionArrayList.get(postionQuestion).getResult_c().equals(questionArrayList.get(postionQuestion).getResult())){
+                    BARENTRY.add(new BarEntry(21, 0));
+                    BARENTRY.add(new BarEntry(22, 1));
+                    BARENTRY.add(new BarEntry(30, 2));
+                    BARENTRY.add(new BarEntry(27, 3));
+                } else {
+                    BARENTRY.add(new BarEntry(27, 0));
+                    BARENTRY.add(new BarEntry(21, 1));
+                    BARENTRY.add(new BarEntry(22, 2));
+                    BARENTRY.add(new BarEntry(30, 3));
+                }
+            }
+        }
+    }
+
+    public void AddValuesToBarEntryLabels(){
+
+        BarEntryLabels.add("A");
+        BarEntryLabels.add("B");
+        BarEntryLabels.add("C");
+        BarEntryLabels.add("D");
+
+    }
+
+    public void FiveAndFive(){
+        if (questionArrayList.get(postionQuestion).getResult_a().equals(questionArrayList.get(postionQuestion).getResult())){
+            questionArrayList.add(new Question(questionArrayList.get(postionQuestion).getId(), "" + questionArrayList.get(postionQuestion).getCont_question(), "" + questionArrayList.get(postionQuestion).getResult_a(), "", "" + questionArrayList.get(postionQuestion).getResult_c(), "", "" + questionArrayList.get(postionQuestion).getResult(), "" + questionArrayList.get(postionQuestion).getField()));
+            questionAdapter = new QuestionAdapter(this, R.layout.row_quesiton, questionArrayList);
+            listView.setAdapter(questionAdapter);
+            questionArrayList.remove(0);
+        } else {
+            if (questionArrayList.get(postionQuestion).getResult_b().equals(questionArrayList.get(postionQuestion).getResult())){
+                questionArrayList.add(new Question(questionArrayList.get(postionQuestion).getId(), "" + questionArrayList.get(postionQuestion).getCont_question(), "", "" + questionArrayList.get(postionQuestion).getResult_b(), "", "" + questionArrayList.get(postionQuestion).getResult_d(), "" + questionArrayList.get(postionQuestion).getResult(), "" + questionArrayList.get(postionQuestion).getField()));
+                questionAdapter = new QuestionAdapter(this, R.layout.row_quesiton, questionArrayList);
+                listView.setAdapter(questionAdapter);
+                questionArrayList.remove(0);
+            } else{
+                if (questionArrayList.get(postionQuestion).getResult_c().equals(questionArrayList.get(postionQuestion).getResult())){
+                    questionArrayList.add(new Question(questionArrayList.get(postionQuestion).getId(), "" + questionArrayList.get(postionQuestion).getCont_question(), "" + questionArrayList.get(postionQuestion).getResult_a(), "", "" + questionArrayList.get(postionQuestion).getResult_c(), "", "" + questionArrayList.get(postionQuestion).getResult(), "" + questionArrayList.get(postionQuestion).getField()));
+                    questionAdapter = new QuestionAdapter(this, R.layout.row_quesiton, questionArrayList);
+                    listView.setAdapter(questionAdapter);
+                    questionArrayList.remove(0);
+                } else{
+                    questionArrayList.add(new Question(questionArrayList.get(postionQuestion).getId(), "" + questionArrayList.get(postionQuestion).getCont_question(), "", "" + questionArrayList.get(postionQuestion).getResult_b(), "", "" + questionArrayList.get(postionQuestion).getResult_d(), "" + questionArrayList.get(postionQuestion).getResult(), "" + questionArrayList.get(postionQuestion).getField()));
+                    questionAdapter = new QuestionAdapter(this, R.layout.row_quesiton, questionArrayList);
+                    listView.setAdapter(questionAdapter);
+                    questionArrayList.remove(0);
+                }
+            }
+        }
+    }
+
+    public void resultA(View view) {
+        if (questionArrayList.get(postionQuestion).getResult_a() != ""){
+            if (questionArrayList.get(postionQuestion).getResult_a().equals(questionArrayList.get(postionQuestion).getResult())){
+                if (Scroce < 30){
+                    Scroce = Scroce + 5;
+                    txtScoreNumber.setText("" + Scroce);
+                } else{
+                    if (Scroce > 150){
+                        Scroce = Scroce + 15;
+                        txtScoreNumber.setText("" + Scroce);
+                    } else {
+                        Scroce = Scroce + 10;
+                        txtScoreNumber.setText("" + Scroce);
+                    }
+                }
+                GetData(urlGetData);
+            } else {
+                if (txtHeartFive.getText().toString().equals("")){
+                    if (txtHeartFour.getText().toString().equals("")) {
+                        if (txtHeartThree.getText().toString().equals("")){
+                            if (txtHeartTwo.getText().toString().equals("")){
+                                Intent intent = new Intent(QuestionActivity.this, MenuActivity.class);
+                                startActivity(intent);
+                            } else {
+                                txtHeartTwo.setText("");
+                                GetData(urlGetData);
+                            }
+                        } else {
+                            txtHeartThree.setText("");
+                            GetData(urlGetData);
+                        }
+                    } else{
+                        txtHeartFour.setText("");
+                        GetData(urlGetData);
+                    }
+                } else {
+                    txtHeartFive.setText("");
+                    GetData(urlGetData);
+                }
+            }
+            numberQuestion = numberQuestion + 1;
+            txtNumberQuestion.setText("" + numberQuestion);
+            questionArrayList.remove(postionQuestion);
+        }
+    }
+
+    public void resultB(View view) {
+        if (questionArrayList.get(postionQuestion).getResult_b() != ""){
+            if (questionArrayList.get(postionQuestion).getResult_b().equals(questionArrayList.get(postionQuestion).getResult())){
+                if (Scroce < 30){
+                    Scroce = Scroce + 5;
+                    txtScoreNumber.setText("" + Scroce);
+                } else{
+                    if (Scroce > 150){
+                        Scroce = Scroce + 15;
+                        txtScoreNumber.setText("" + Scroce);
+                    } else {
+                        Scroce = Scroce + 10;
+                        txtScoreNumber.setText("" + Scroce);
+                    }
+                }
+                GetData(urlGetData);
+            } else {
+                if (txtHeartFive.getText().toString().equals("")){
+                    if (txtHeartFour.getText().toString().equals("")) {
+                        if (txtHeartThree.getText().toString().equals("")){
+                            if (txtHeartTwo.getText().toString().equals("")){
+                                Intent intent = new Intent(QuestionActivity.this, MenuActivity.class);
+                                startActivity(intent);
+                            } else {
+                                txtHeartTwo.setText("");
+                                GetData(urlGetData);
+                            }
+                        } else {
+                            txtHeartThree.setText("");
+                            GetData(urlGetData);
+                        }
+                    } else{
+                        txtHeartFour.setText("");
+                        GetData(urlGetData);
+                    }
+                } else {
+                    txtHeartFive.setText("");
+                    GetData(urlGetData);
+                }
+            }
+            numberQuestion = numberQuestion + 1;
+            txtNumberQuestion.setText("" + numberQuestion);
+            questionArrayList.remove(postionQuestion);
+        }
+    }
+
+    public void resultC(View view) {
+        if (questionArrayList.get(postionQuestion).getResult_c() != ""){
+            if (questionArrayList.get(postionQuestion).getResult_c().equals(questionArrayList.get(postionQuestion).getResult())){
+                if (Scroce < 30){
+                    Scroce = Scroce + 5;
+                    txtScoreNumber.setText("" + Scroce);
+                } else{
+                    if (Scroce > 150){
+                        Scroce = Scroce + 15;
+                        txtScoreNumber.setText("" + Scroce);
+                    } else {
+                        Scroce = Scroce + 10;
+                        txtScoreNumber.setText("" + Scroce);
+                    }
+                }
+                GetData(urlGetData);
+            } else {
+                if (txtHeartFive.getText().toString().equals("")){
+                    if (txtHeartFour.getText().toString().equals("")) {
+                        if (txtHeartThree.getText().toString().equals("")){
+                            if (txtHeartTwo.getText().toString().equals("")){
+                                Intent intent = new Intent(QuestionActivity.this, MenuActivity.class);
+                                startActivity(intent);
+                            } else {
+                                txtHeartTwo.setText("");
+                                GetData(urlGetData);
+                            }
+                        } else {
+                            txtHeartThree.setText("");
+                            GetData(urlGetData);
+                        }
+                    } else{
+                        txtHeartFour.setText("");
+                        GetData(urlGetData);
+                    }
+                } else {
+                    txtHeartFive.setText("");
+                    GetData(urlGetData);
+                }
+            }
+            numberQuestion = numberQuestion + 1;
+            txtNumberQuestion.setText("" + numberQuestion);
+            questionArrayList.remove(postionQuestion);
+        }
+    }
+
+    public void resultD(View view) {
+        if (questionArrayList.get(postionQuestion).getResult_d() != ""){
+            if (questionArrayList.get(postionQuestion).getResult_d().equals(questionArrayList.get(postionQuestion).getResult())){
+                if (Scroce < 30){
+                    Scroce = Scroce + 5;
+                    txtScoreNumber.setText("" + Scroce);
+                } else{
+                    if (Scroce > 150){
+                        Scroce = Scroce + 15;
+                        txtScoreNumber.setText("" + Scroce);
+                    } else {
+                        Scroce = Scroce + 10;
+                        txtScoreNumber.setText("" + Scroce);
+                    }
+                }
+                GetData(urlGetData);
+            } else {
+                if (txtHeartFive.getText().toString().equals("")){
+                    if (txtHeartFour.getText().toString().equals("")) {
+                        if (txtHeartThree.getText().toString().equals("")){
+                            if (txtHeartTwo.getText().toString().equals("")){
+                                Intent intent = new Intent(QuestionActivity.this, MenuActivity.class);
+                                startActivity(intent);
+                            } else {
+                                txtHeartTwo.setText("");
+                                GetData(urlGetData);
+                            }
+                        } else {
+                            txtHeartThree.setText("");
+                            GetData(urlGetData);
+                        }
+                    } else{
+                        txtHeartFour.setText("");
+                        GetData(urlGetData);
+                    }
+                } else {
+                    txtHeartFive.setText("");
+                    GetData(urlGetData);
+                }
+            }
+            numberQuestion = numberQuestion + 1;
+            txtNumberQuestion.setText("" + numberQuestion);
+            questionArrayList.remove(postionQuestion);
+        }
+    }
+
+    public void FiveandFive(View view) {
+        FiveAndFive();
+        btnFivetyAndFivety.setVisibility(View.INVISIBLE);
     }
 }
