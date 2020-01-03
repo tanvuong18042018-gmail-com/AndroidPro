@@ -27,14 +27,14 @@
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <Button
-        android:id="@+id/buttonContinute"
+        android:id="@+id/buttonCredit"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/btn_menu"
-        android:text="Continute"
+        android:text="Credit"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
@@ -71,10 +71,10 @@
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/buttonContinute"
+        app:layout_constraintEnd_toEndOf="@+id/buttonCredit"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/buttonContinute"
-        app:layout_constraintTop_toBottomOf="@+id/buttonContinute" />
+        app:layout_constraintStart_toStartOf="@+id/buttonCredit"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCredit" />
 
     <Button
         android:id="@+id/buttonQuit"
@@ -109,22 +109,23 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonUpdatePersonal" />
 
 
-    <Button
+    <TextView
         android:id="@+id/buttonScore"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/btn_activity_menu"
         android:enabled="false"
-        android:text="1052"
+        android:gravity="center"
+        android:text="0"
         android:textColor="#FF0000"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/textViewScore"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/buttonDiamon" />
 
-    <Button
+    <TextView
         android:id="@+id/buttonDiamon"
         android:layout_width="0dp"
         android:layout_height="40dp"
@@ -132,9 +133,10 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/btn_activity_menu"
         android:enabled="false"
-        android:text="320"
+        android:text="0"
+        android:gravity="center"
         android:textColor="#0037FF"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/textViewDiamon"
         app:layout_constraintEnd_toEndOf="parent"

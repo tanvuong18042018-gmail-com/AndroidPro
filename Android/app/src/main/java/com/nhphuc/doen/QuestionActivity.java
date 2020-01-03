@@ -6,7 +6,10 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.icu.text.MeasureFormat;
+import android.media.Image;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -38,9 +41,9 @@ import java.util.ArrayList;
 
 public class QuestionActivity extends AppCompatActivity {
 
-    Button btnBuyCredit, btnAudience, btnFivetyAndFivety;
-    TextView txtResult, txtResultA, txtResultB, txtResultC, txtResultD, txtHeartFive, txtHeartFour, txtHeartThree, txtHeartTwo, txtHeartOne, txtScoreNumber, txtNumberQuestion;
-    ImageView imgAudience;
+    Button btnBuyCredit, btnAudience, btnFivetyAndFivety, btnNguoiThan, btnThreeHelper;
+    TextView txtResult, txtResultA, txtResultB, txtResultC, txtResultD, txtHeartFive, txtHeartFour, txtHeartThree, txtHeartTwo, txtHeartOne, txtScoreNumber, txtNumberQuestion, txtTimer;
+    ImageView imgAudience, imgNguoiThan, imgThreeHelp;
 
     String urlGetData;
     BarChart chart;
@@ -58,6 +61,10 @@ public class QuestionActivity extends AppCompatActivity {
     int postionQuestion = 0;
     int Scroce = 0;
     int numberQuestion = 1;
+    CountDownTimer countDownTimer;
+
+    CountDownTimer countDownTimer1, countDownTimer2;
+    MediaPlayer mediaPlayer, mediaPlayer2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,32 +78,110 @@ public class QuestionActivity extends AppCompatActivity {
         AnhXa();
 
         ShowActivity();
+        mediaPlayer = MediaPlayer.create(QuestionActivity.this, R.raw.backgroundmediasoundlogin);
+        mediaPlayer.start();
+
+        mediaPlayer2 = MediaPlayer.create(QuestionActivity.this, R.raw.backgroundmediasoundmain);
+
+        countDownTimer1 = new CountDownTimer(980000, 1000){
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+            }
+
+            @Override
+            public void onFinish() {
+                mediaPlayer.stop();
+                mediaPlayer2 = MediaPlayer.create(QuestionActivity.this, R.raw.backgroundmediasoundmain);
+                mediaPlayer2.start();
+                countDownTimer2.start();
+            }
+        };
+        countDownTimer2 = new CountDownTimer(134000, 1000){
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+            }
+
+            @Override
+            public void onFinish() {
+                mediaPlayer2.stop();
+                mediaPlayer = MediaPlayer.create(QuestionActivity.this, R.raw.backgroundmediasoundlogin);
+                mediaPlayer.start();
+                countDownTimer1.start();
+            }
+        };
+        countDownTimer1.start();
 
         GetData(urlGetData);
+
+        countDownTimer = new CountDownTimer(30000, 1000){
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                txtTimer.setText("" + millisUntilFinished/1000);
+            }
+
+            @Override
+            public void onFinish() {
+                if (txtHeartFive.getText().toString().equals("")){
+                    if (txtHeartFour.getText().toString().equals("")) {
+                        if (txtHeartThree.getText().toString().equals("")){
+                            if (txtHeartTwo.getText().toString().equals("")){
+                                Intent intent = new Intent(QuestionActivity.this, MenuActivity.class);
+                                startActivity(intent);
+                            } else {
+                                txtHeartTwo.setText("");
+                                GetData(urlGetData);
+                            }
+                        } else {
+                            txtHeartThree.setText("");
+                            GetData(urlGetData);
+                        }
+                    } else{
+                        txtHeartFour.setText("");
+                        GetData(urlGetData);
+                    }
+                } else {
+                    txtHeartFive.setText("");
+                    GetData(urlGetData);
+                }
+                numberQuestion = numberQuestion + 1;
+                txtNumberQuestion.setText("" + numberQuestion);
+                questionArrayList.remove(postionQuestion);
+                countDownTimer.start();
+            }
+        };
+        countDownTimer.start();
     }
 
     public void AnhXa(){
-        btnBuyCredit    = (Button) findViewById(R.id.buttonBuyCredit);
-        btnAudience     = (Button) findViewById(R.id.buttonAudience);
-        btnFivetyAndFivety = (Button) findViewById(R.id.buttonFivetyandFivety);
+        btnBuyCredit        = (Button) findViewById(R.id.buttonBuyCredit);
+        btnAudience         = (Button) findViewById(R.id.buttonAudience);
+        btnFivetyAndFivety  = (Button) findViewById(R.id.buttonFivetyandFivety);
+        btnNguoiThan        = (Button) findViewById(R.id.buttonNguoiThan);
+        btnThreeHelper      = (Button) findViewById(R.id.buttonThreeHelper);
 
-        imgAudience     = (ImageView) findViewById(R.id.imageViewAudience);
+        imgAudience         = (ImageView) findViewById(R.id.imageViewAudience);
+        imgNguoiThan        = (ImageView) findViewById(R.id.imageViewNguoiThan);
+        imgThreeHelp        = (ImageView) findViewById(R.id.imageViewThreeHelp);
 
-        txtResultA      = (TextView) findViewById(R.id.textViewResultA);
-        txtResultB      = (TextView) findViewById(R.id.textViewResultB);
-        txtResultC      = (TextView) findViewById(R.id.textViewResultC);
-        txtResultD      = (TextView) findViewById(R.id.textViewResultD);
-        txtResult       = (TextView) findViewById(R.id.textViewResultQuetion);
-        txtHeartFive    = (TextView) findViewById(R.id.textViewHeartFive);
-        txtHeartFour    = (TextView) findViewById(R.id.textViewHeartFour);
-        txtHeartThree   = (TextView) findViewById(R.id.textViewHeartThree);
-        txtHeartTwo     = (TextView) findViewById(R.id.textViewHeartTwo);
-        txtHeartOne     = (TextView) findViewById(R.id.textViewHeartOne);
-        txtScoreNumber  = (TextView) findViewById(R.id.textViewScoreNumber);
-        txtNumberQuestion = (TextView) findViewById(R.id.textViewNumberQuestion);
+        txtResultA          = (TextView) findViewById(R.id.textViewResultA);
+        txtResultB          = (TextView) findViewById(R.id.textViewResultB);
+        txtResultC          = (TextView) findViewById(R.id.textViewResultC);
+        txtResultD          = (TextView) findViewById(R.id.textViewResultD);
+        txtResult           = (TextView) findViewById(R.id.textViewResultQuetion);
+        txtHeartFive        = (TextView) findViewById(R.id.textViewHeartFive);
+        txtHeartFour        = (TextView) findViewById(R.id.textViewHeartFour);
+        txtHeartThree       = (TextView) findViewById(R.id.textViewHeartThree);
+        txtHeartTwo         = (TextView) findViewById(R.id.textViewHeartTwo);
+        txtHeartOne         = (TextView) findViewById(R.id.textViewHeartOne);
+        txtScoreNumber      = (TextView) findViewById(R.id.textViewScoreNumber);
+        txtNumberQuestion   = (TextView) findViewById(R.id.textViewNumberQuestion);
+        txtTimer            = (TextView) findViewById(R.id.textViewTimer);
 
-        listView = (ListView) findViewById(R.id.listViewQuestion);
-        questionArrayList = new ArrayList<>();
+        listView            = (ListView) findViewById(R.id.listViewQuestion);
+        questionArrayList   = new ArrayList<>();
 
         questionAdapter = new QuestionAdapter(this, R.layout.row_quesiton, questionArrayList);
         listView.setAdapter(questionAdapter);
@@ -153,6 +238,30 @@ public class QuestionActivity extends AppCompatActivity {
                 PopupAudience();
                 btnAudience.setVisibility(View.INVISIBLE);
                 imgAudience.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        imgNguoiThan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String result = questionArrayList.get(postionQuestion).getResult();
+                Intent intent = new Intent(QuestionActivity.this, dinalogNguoiThan.class);
+                intent.putExtra("result", result);
+                startActivity(intent);
+                btnNguoiThan.setVisibility(View.INVISIBLE);
+                imgNguoiThan.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        imgThreeHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String resultThree = questionArrayList.get(0).getResult();
+                Intent intent = new Intent(QuestionActivity.this, threeHelper.class);
+                intent.putExtra("resultThree", resultThree);
+                startActivity(intent);
+                imgThreeHelp.setVisibility(View.INVISIBLE);
+                btnThreeHelper.setVisibility(View.INVISIBLE);
             }
         });
     }
@@ -331,6 +440,7 @@ public class QuestionActivity extends AppCompatActivity {
             txtNumberQuestion.setText("" + numberQuestion);
             questionArrayList.remove(postionQuestion);
         }
+        countDownTimer.start();
     }
 
     public void resultB(View view) {
@@ -377,6 +487,7 @@ public class QuestionActivity extends AppCompatActivity {
             txtNumberQuestion.setText("" + numberQuestion);
             questionArrayList.remove(postionQuestion);
         }
+        countDownTimer.start();
     }
 
     public void resultC(View view) {
@@ -423,6 +534,7 @@ public class QuestionActivity extends AppCompatActivity {
             txtNumberQuestion.setText("" + numberQuestion);
             questionArrayList.remove(postionQuestion);
         }
+        countDownTimer.start();
     }
 
     public void resultD(View view) {
@@ -469,10 +581,12 @@ public class QuestionActivity extends AppCompatActivity {
             txtNumberQuestion.setText("" + numberQuestion);
             questionArrayList.remove(postionQuestion);
         }
+        countDownTimer.start();
     }
 
     public void FiveandFive(View view) {
         FiveAndFive();
         btnFivetyAndFivety.setVisibility(View.INVISIBLE);
     }
+
 }

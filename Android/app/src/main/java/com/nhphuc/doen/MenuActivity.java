@@ -7,15 +7,26 @@ import android.os.Bundle;
 import android.text.Layout;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MenuActivity extends AppCompatActivity {
 
     Button btnNewGame, btnUpdateProfile, btnHistory, btnRank, btnQuit;
+
+    TextView txtNamePerson, txtEmailUser, txtScore, txtDiamon;
     Layout layoutMenu;
+
+    String nameuser, emailuser, maxscore, diamon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        Intent intent = getIntent();
+        nameuser = intent.getStringExtra("username");
+        emailuser = intent.getStringExtra("emailuser");
+        maxscore = intent.getStringExtra("maxScore");
+        diamon = intent.getStringExtra("diamon");
 
         AnhXa();
 
@@ -28,6 +39,16 @@ public class MenuActivity extends AppCompatActivity {
         btnHistory = (Button) findViewById(R.id.buttonHistory);
         btnRank = (Button) findViewById(R.id.buttonRank);
         btnQuit = (Button) findViewById(R.id.buttonQuit);
+
+        txtScore = (TextView) findViewById(R.id.buttonScore);
+        txtDiamon = (TextView) findViewById(R.id.buttonDiamon);
+        txtNamePerson = (TextView) findViewById(R.id.textViewNamePersonal);
+        txtNamePerson.setText(nameuser);
+        txtEmailUser = (TextView) findViewById(R.id.textViewGmailShow);
+        txtEmailUser.setText(emailuser);
+
+        txtScore.setText(maxscore);
+        txtDiamon.setText(diamon);
     }
 
     private void showActivity() {

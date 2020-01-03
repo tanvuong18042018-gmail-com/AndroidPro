@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -8,40 +8,41 @@
         android:id="@+id/textViewNumberRank"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="1"
-        android:textColor="#FFE300"
-        android:textSize="14sp"
-        android:textStyle="bold" />
-
-    <ImageView
-        android:id="@+id/imageViewAvatarPlayerRank"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_margin="16dp"
-        app:srcCompat="@drawable/avatar" />
+        android:text="10"
+        android:textSize="31sp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="23dp"
+        android:textStyle="bold"
+        android:textColor="#FFF200"/>
 
     <TextView
         android:id="@+id/textViewNamePlayerRank"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_alignTop="@+id/textViewNumberRank"
+        android:layout_alignBottom="@+id/textViewNumberRank"
+        android:layout_toEndOf="@+id/textViewNumberRank"
+        android:layout_marginStart="50dp"
+        android:gravity="center"
         android:text="Nguyen Hoang Phuc"
-        android:textAlignment="textEnd"
-        android:layout_weight="1"
         android:textColor="#00FFB7"
-        android:textSize="14sp" />
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textViewScorePlayerRank"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:layout_marginEnd="0dp"
+        android:layout_alignTop="@+id/textViewNamePlayerRank"
+        android:layout_alignBottom="@+id/textViewNamePlayerRank"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="30dp"
         android:layout_weight="1"
-        android:text="25687"
+        android:gravity="center"
+        android:text="0"
         android:textAlignment="textEnd"
         android:textColor="#FF0000"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-</LinearLayout>
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:ignore="RtlCompat" />
+</RelativeLayout>

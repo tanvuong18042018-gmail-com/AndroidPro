@@ -94,20 +94,20 @@
         app:layout_constraintTop_toBottomOf="@+id/editText3" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textViewGmailShow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="phucnguyen@gmail.com"
+        android:layout_marginTop="8dp"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/imageViewAvatarProfile"
         app:layout_constraintHorizontal_bias="0.59"
         app:layout_constraintStart_toStartOf="@+id/imageViewAvatarProfile"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewNamePersonal" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/textViewNamePersonal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -117,18 +117,6 @@
         app:layout_constraintEnd_toEndOf="@+id/imageViewAvatarProfile"
         app:layout_constraintStart_toStartOf="@+id/imageViewAvatarProfile"
         app:layout_constraintTop_toBottomOf="@+id/imageViewAvatarProfile" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="01234567890"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewAvatarProfile"
-        app:layout_constraintStart_toStartOf="@+id/imageViewAvatarProfile"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <Button
         android:id="@+id/button11"

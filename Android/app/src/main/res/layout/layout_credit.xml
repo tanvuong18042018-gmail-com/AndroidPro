@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageViewCreditFiveFive"
+        android:layout_width="200dp"
+        android:layout_height="120dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/krixi" />
+
+    <TextView
+    android:id="@+id/textViewBuyCredit"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignStart="@+id/imageViewCreditFiveFive"
+    android:layout_alignEnd="@+id/imageViewCreditFiveFive"
+    android:layout_alignBottom="@+id/imageViewCreditFiveFive"
+    android:gravity="center"
+    android:textStyle="bold"
+    android:textSize="30sp"
+    android:textColor="#FFFFFF"
+    android:background="#B0002AFF"
+    android:text="BUY" />
+
+    <TextView
+        android:id="@+id/textViewRuby"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textViewBuyCredit"
+        android:layout_below="@+id/textViewCredit"
+        android:layout_alignStart="@+id/imageViewCreditFiveFive"
+        android:background="#75000000"
+        android:paddingEnd="8dp"
+        android:gravity="right"
+        android:text="✯"
+        android:textColor="#FFD500"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewNumberRuby"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textViewBuyCredit"
+        android:layout_alignTop="@+id/textViewRuby"
+        android:layout_alignEnd="@+id/imageViewCreditFiveFive"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/textViewRuby"
+        android:background="#75000000"
+        android:paddingStart="8dp"
+        android:text="50"
+        android:textColor="#FFD500"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewCredit"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/imageViewCreditFiveFive"
+        android:layout_alignTop="@+id/imageViewCreditFiveFive"
+        android:layout_alignEnd="@+id/imageViewCreditFiveFive"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:background="#75000000"
+        android:text="50:50" />
+
+</RelativeLayout>

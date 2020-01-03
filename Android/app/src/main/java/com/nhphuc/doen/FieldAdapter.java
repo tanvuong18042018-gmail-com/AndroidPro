@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class FieldAdapter  extends BaseAdapter {
+public class FieldAdapter extends BaseAdapter {
 
     private Context context;
     private int layout;

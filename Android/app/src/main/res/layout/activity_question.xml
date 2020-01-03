@@ -49,7 +49,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button13"
+        android:id="@+id/buttonNguoiThan"
         android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_below="@+id/buttonAudience"
@@ -64,12 +64,12 @@
         app:layout_constraintHorizontal_bias="1.0" />
 
     <Button
-        android:id="@+id/button14"
+        android:id="@+id/buttonThreeHelper"
         android:layout_width="100dp"
         android:layout_height="60dp"
-        android:layout_below="@+id/button13"
-        android:layout_alignStart="@+id/button13"
-        android:layout_alignEnd="@+id/button13"
+        android:layout_below="@+id/buttonNguoiThan"
+        android:layout_alignStart="@+id/buttonNguoiThan"
+        android:layout_alignEnd="@+id/buttonNguoiThan"
         android:layout_marginTop="8dp"
         android:background="@drawable/btn_help"
         android:enabled="false"
@@ -116,19 +116,19 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewNguoiThan"
         android:layout_width="69dp"
         android:layout_height="67dp"
-        android:layout_alignStart="@+id/button13"
-        android:layout_alignTop="@+id/button13"
-        android:layout_alignEnd="@+id/button13"
-        android:layout_alignBottom="@+id/button13"
+        android:layout_alignStart="@+id/buttonNguoiThan"
+        android:layout_alignTop="@+id/buttonNguoiThan"
+        android:layout_alignEnd="@+id/buttonNguoiThan"
+        android:layout_alignBottom="@+id/buttonNguoiThan"
         app:layout_constraintBottom_toTopOf="@+id/button9"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_help_phone_foreground" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageViewThreeHelp"
         android:layout_width="69dp"
         android:layout_height="67dp"
         android:layout_alignStart="@+id/button14"
@@ -152,7 +152,7 @@
         app:srcCompat="@drawable/ic_help_chart_foreground" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/button8"
@@ -165,9 +165,9 @@
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/button13"
-        app:layout_constraintEnd_toEndOf="@+id/button13"
-        app:layout_constraintTop_toTopOf="@+id/button13" />
+        app:layout_constraintBottom_toBottomOf="@+id/buttonNguoiThan"
+        app:layout_constraintEnd_toEndOf="@+id/buttonNguoiThan"
+        app:layout_constraintTop_toTopOf="@+id/buttonNguoiThan" />
 
 
     <TextView
@@ -278,7 +278,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textViewTextPoint"
-        android:layout_toStartOf="@+id/textView"
         android:layout_toEndOf="@+id/textViewTextPoint"
         android:text="0"
         android:textColor="#FF0000"
@@ -307,7 +306,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewTextPoint"
         android:layout_alignStart="@+id/textViewNumberQuestion"
-        android:layout_alignEnd="@id/textView"
         android:layout_alignBottom="@+id/buttonFivetyandFivety" />
 
 </RelativeLayout>

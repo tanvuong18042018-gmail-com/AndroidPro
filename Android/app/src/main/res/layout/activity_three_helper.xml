@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundbox"
+    tools:context=".threeHelper">
+    <ImageView
+        android:id="@+id/imageViewMessi"
+        android:layout_width="130dp"
+        android:layout_height="120dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/messi" />
+
+    <ImageView
+        android:id="@+id/imageViewRonaldo"
+        android:layout_width="130dp"
+        android:layout_height="120dp"
+        android:layout_below="@+id/imageViewMessi"
+        android:layout_alignStart="@+id/imageViewMessi"
+        android:src="@drawable/ronaldo" />
+
+    <ImageView
+        android:id="@+id/imageViewNeymar"
+        android:layout_width="130dp"
+        android:layout_height="120dp"
+        android:layout_below="@+id/imageViewRonaldo"
+        android:layout_alignStart="@+id/imageViewRonaldo"
+        android:src="@drawable/neymar" />
+
+    <TextView
+        android:id="@+id/textViewMessiResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageViewRonaldo"
+        android:layout_alignTop="@+id/imageViewMessi"
+        android:layout_marginStart="160dp"
+        android:layout_toEndOf="@+id/imageViewMessi"
+        android:text="A"
+        android:textColor="#fff"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/textViewRonaldoResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageViewNeymar"
+        android:layout_alignTop="@+id/imageViewRonaldo"
+        android:layout_marginStart="160dp"
+        android:layout_toEndOf="@+id/imageViewRonaldo"
+        android:gravity="center"
+        android:text="A"
+        android:textColor="#fff"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewNeymarResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageViewNeymar"
+        android:layout_alignBottom="@+id/imageViewNeymar"
+        android:layout_marginStart="160dp"
+        android:layout_toEndOf="@+id/imageViewNeymar"
+        android:gravity="center"
+        android:text="A"
+        android:textColor="#fff"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

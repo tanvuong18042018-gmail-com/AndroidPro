@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="600dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/backgroundbox">
+
+    <TextView
+        android:id="@+id/textViewTitleTroGiup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:text="Bạn chọn ai trợ giúp nào!!"
+        android:textColor="#fff"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginTop="24dp"
+        android:gravity="center" />
+
+    <ImageView
+        android:id="@+id/imageViewronaldo"
+        android:layout_width="170dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/textViewTitleTroGiup"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="47dp"
+        android:src="@drawable/ronaldo" />
+
+    <ImageView
+        android:id="@+id/imageViewMessi"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_alignTop="@+id/imageViewronaldo"
+        android:layout_alignBottom="@+id/imageViewronaldo"
+        android:layout_toStartOf="@+id/imageViewNeymar"
+        android:layout_toEndOf="@+id/imageViewronaldo"
+        android:onClick="messi"
+        android:src="@drawable/messi" />
+
+    <ImageView
+        android:id="@+id/imageViewNeymar"
+        android:layout_width="130dp"
+        android:layout_height="200dp"
+        android:layout_alignTop="@+id/imageViewronaldo"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="24dp"
+        android:onClick="neymar"
+        android:src="@drawable/neymar" />
+
+    <ImageView
+        android:id="@+id/imageViewMessi2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/imageViewronaldo"
+        android:layout_alignTop="@+id/imageViewronaldo"
+        android:layout_alignBottom="@+id/imageViewronaldo"
+        android:layout_alignEnd="@+id/imageViewronaldo"
+        android:visibility="invisible"
+        android:src="@drawable/messi" />
+
+    <ImageView
+        android:id="@+id/imageViewNeymar2"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignStart="@+id/imageViewronaldo"
+        android:layout_alignTop="@+id/imageViewronaldo"
+        android:layout_alignBottom="@+id/imageViewronaldo"
+        android:layout_alignEnd="@+id/imageViewronaldo"
+        android:visibility="invisible"
+        android:src="@drawable/neymar" />
+
+
+</RelativeLayout>

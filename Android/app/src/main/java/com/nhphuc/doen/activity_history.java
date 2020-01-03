@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 
 import java.util.ArrayList;
 
@@ -14,12 +16,50 @@ public class activity_history extends AppCompatActivity {
     HistoryAdapter historyAdapter;
     ArrayList<History> historyArrayList;
 
+    CountDownTimer countDownTimer, countDownTimer2;
+    MediaPlayer mediaPlayer, mediaPlayer2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
         AnhXa();
+
+        mediaPlayer = MediaPlayer.create(activity_history.this, R.raw.backgroundmediasoundlogin);
+        mediaPlayer.start();
+
+        mediaPlayer2 = MediaPlayer.create(activity_history.this, R.raw.backgroundmediasoundmain);
+
+        countDownTimer = new CountDownTimer(980000, 1000){
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+            }
+
+            @Override
+            public void onFinish() {
+                mediaPlayer.stop();
+                mediaPlayer2 = MediaPlayer.create(activity_history.this, R.raw.backgroundmediasoundmain);
+                mediaPlayer2.start();
+                countDownTimer2.start();
+            }
+        };
+        countDownTimer2 = new CountDownTimer(134000, 1000){
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+            }
+
+            @Override
+            public void onFinish() {
+                mediaPlayer2.stop();
+                mediaPlayer = MediaPlayer.create(activity_history.this, R.raw.backgroundmediasoundlogin);
+                mediaPlayer.start();
+                countDownTimer.start();
+            }
+        };
+        countDownTimer.start();
 
         HistoryGame();
     }

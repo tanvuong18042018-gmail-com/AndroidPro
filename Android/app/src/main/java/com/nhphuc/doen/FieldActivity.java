@@ -3,7 +3,9 @@ package com.nhphuc.doen;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -35,6 +37,9 @@ public class FieldActivity extends AppCompatActivity {
 
     String m;
 
+    CountDownTimer countDownTimer, countDownTimer2;
+    MediaPlayer mediaPlayer, mediaPlayer2;
+
     //Field field;
 
     @Override
@@ -45,6 +50,40 @@ public class FieldActivity extends AppCompatActivity {
         Anhxa();
 
         //ShowActivity();
+        mediaPlayer = MediaPlayer.create(FieldActivity.this, R.raw.backgroundmediasoundlogin);
+        mediaPlayer.start();
+
+        mediaPlayer2 = MediaPlayer.create(FieldActivity.this, R.raw.backgroundmediasoundmain);
+
+        countDownTimer = new CountDownTimer(980000, 1000){
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+            }
+
+            @Override
+            public void onFinish() {
+                mediaPlayer.stop();
+                mediaPlayer2 = MediaPlayer.create(FieldActivity.this, R.raw.backgroundmediasoundmain);
+                mediaPlayer2.start();
+                countDownTimer2.start();
+            }
+        };
+        countDownTimer2 = new CountDownTimer(134000, 1000){
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+            }
+
+            @Override
+            public void onFinish() {
+                mediaPlayer2.stop();
+                mediaPlayer = MediaPlayer.create(FieldActivity.this, R.raw.backgroundmediasoundlogin);
+                mediaPlayer.start();
+                countDownTimer.start();
+            }
+        };
+        countDownTimer.start();
 
         GetData(urlGetData);
 
